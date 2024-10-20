@@ -1,0 +1,139 @@
+/* Global Styles */
+body {
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Weather Widget */
+.weather-widget {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  max-width: 90vw;
+  margin: 20px auto;
+  flex-wrap: wrap;
+}
+
+.weather-data {
+  flex: 1 1 45%;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+/* Forecast Grid */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.forecast-day {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Spinner */
+#spinner {
+  display: none;
+}
+
+.show-spinner {
+  display: flex !important;
+}
+
+.loading-spinner {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+  .forecast-grid {
+      grid-template-columns: repeat(4, 1fr);
+  }
+
+  .weather-data {
+      flex: 1 1 48%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .forecast-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+
+  .weather-data {
+      flex: 1 1 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .forecast-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-widget {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .weather-data {
+      flex: 1 1 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .forecast-grid {
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .weather-data {
+      padding: 10px;
+      margin: 10px 0;
+  }
+}
